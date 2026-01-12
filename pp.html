@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Portfolio</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="I am Pawan Kumayu, a MERN Developer building responsive and modern websites. This is my personal portfolio.">
+    <meta name="keywords" content="Pawan Kumayu, MERN Developer, Web Developer, Portfolio, Full Stack Developer">
+    <meta name="author" content="Pawan Kumayu">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./favicon.png">
+
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #0b0c10;
+            color: #f5f6fa;
+            line-height: 1.6;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: fixed;
+            width: 250px;
+            height: 100%;
+            background: #1f2833;
+            padding: 30px 20px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 15px;
+            border: 3px solid #66fcf1;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            color: #66fcf1;
+        }
+
+        .sub-title {
+            text-align: center;
+            color: #c5c6c7;
+            font-size: 14px;
+            letter-spacing: -3px;
+            margin-bottom: 10px;
+        }
+
+        .sub-title:hover {
+            letter-spacing: 2px;
+            color: #a24594;
+        }
+
+        /* SOCIAL BAR HORIZONTAL */
+        .social-bar {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .s-icon {
+            padding: 8px;
+            border-radius: 5px;
+            color: #c5c6c7;
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.3s ease;
+        }
+
+        .s-icon:hover {
+            color: #66fcf1;
+            transform: translateY(-3px);
+            text-shadow: 0 0 8px #66fcf1;
+        }
+
+        .menu {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px;
+        }
+
+        .menu li {
+            margin: 15px 0;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #c5c6c7;
+            font-size: 16px;
+            display: block;
+            padding: 8px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #45a29e;
+            color: #0b0c10;
+        }
+
+        /* MAIN SECTION */
+        .main {
+            margin-left: 250px;
+            padding: 50px 20px;
+        }
+
+        /* HERO */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .typewriter {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 3px solid #66fcf1;
+            white-space: nowrap;
+            animation: typing 3s steps(30) infinite alternate;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #c5c6c7;
+            margin-bottom: 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 25px;
+            background: #a24594;
+            color: #0b0c10;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background: #66fcf1;
+        }
+
+        .hire-btn,
+        .resume-btn {
+            padding: 10px 22px;
+            display: inline-block;
+            margin: 6px 8px 0 0;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            border: 2px solid #66fcf1;
+        }
+
+        .hire-btn {
+            background: #66fcf1;
+            color: #0b0c10;
+        }
+
+        .hire-btn:hover {
+            background: transparent;
+            color: #66fcf1;
+            transform: translateY(-3px);
+        }
+
+        .resume-btn {
+            background: transparent;
+            color: #66fcf1;
+        }
+
+        .resume-btn:hover {
+            background: #66fcf1;
+            color: #0b0c10;
+            transform: translateY(-3px);
+        }
+
+        .hero-img {
+            max-width: 400px;
+            border-radius: 10px;
+            border: 2px solid #66fcf1;
+            animation: float 3s infinite;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* SECTION CARD */
+        .section {
+            background-color: #1f2833;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(102, 252, 241, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 252, 241, 0.5);
+        }
+
+        /* About animation */
+        .about-text {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SKILLS */
+        #skills {
+            animation: skillme 1.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes skillme {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .skillul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        .skillul li {
+            margin-bottom: 5px;
+            transition: 0.3s;
+            color: blueviolet;
+        }
+
+        .skillul li:hover {
+            color: #ff9800;
+            letter-spacing: 7px;
+        }
+
+        /* WORK GRID */
+        .work-grid {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .work-item {
+            border: 2px solid #66fcf1;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.4s ease;
+        }
+
+        .work-item:hover {
+            transform: scale(1.06);
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .project-name {
+            margin: 10px 0;
+            color: #66fcf1;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* CONTACT FORM */
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        form button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #66fcf1;
+            color: #0b0c10;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .main {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-img {
+                margin-top: 20px;
+                width: 80%;
+            }
+
+            .social-bar {
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .s-icon {
+                padding: 5px 10px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <img src="./IMG_20230727_112731.jpg" class="profile-img">
+        <h2>Pawan Kumayu</h2>
+        <p class="sub-title">MERN DEVELOPER</p>
+
+        <!-- SOCIAL MEDIA HORIZONTAL -->
+        <div class="social-bar">
+            <a href="https://github.com/" target="_blank" class="s-icon"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/" target="_blank" class="s-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="https://instagram.com/" target="_blank" class="s-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/8959008733" target="_blank" class="s-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://twitter.com/" target="_blank" class="s-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://t.me/" target="_blank" class="s-icon"><i class="fab fa-telegram"></i></a>
+        </div>
+
+        <ul class="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <section id="home" class="hero">
+            <div class="hero-text">
+                <h1 class="typewriter">I am a Full Stack Developer</h1>
+                <p>Creating modern and responsive web designs with passion.</p>
+
+                <a href="#work" class="btn">View Portfolio</a>
+                <a href="#contact" class="hire-btn">Hire Me</a>
+                <a href="./pawan_resume.pdf" download class="resume-btn">Download Resume</a>
+            </div>
+            <img src="../project_portfolio/pk bg remove 2.PNG" class="hero-img">
+        </section>
+
+        <section id="about" class="section">
+            <h1>About Me</h1>
+            <p class="about-text">Hi, I am <span style="color:#45a29e;">Pawan Kumayu</span>. I am a MERN Developer currently pursuing B.Tech along with developer coaching. I love creating clean and modern UI designs and building responsive web experiences.</p>
+            <h3 class="about-text">Hobbies & Interests:</h3>
+            <ul class="about-text">
+                <li>Cricket (Play & Watch)</li>
+                <li>Traveling to mountains</li>
+                <li>Bhakti / Pooja path</li>
+            </ul>
+        </section>
+
+        <section id="services" class="section">
+            <h1>Services</h1>
+            <p>Web Design, UI Layout, Frontend Development, Responsive Design</p>
+        </section>
+
+        <section id="skills" class="section">
+            <h1>Skills</h1>
+            <h2>Programming:</h2>
+            <ul class="skillul">
+                <li>C</li>
+                <li>C++</li>
+                <li>Python</li>
+            </ul>
+
+            <h2>Frontend:</h2>
+            <ul class="skillul">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>Bootstrap</li>
+            </ul>
+
+            <h2>Tools:</h2>
+            <ul class="skillul">
+                <li>VS Code</li>
+                <li>Git</li>
+                <li>Figma</li>
+            </ul>
+
+            <h2>Soft Skills:</h2>
+            <ul class="skillul">
+                <li>Teamwork</li>
+                <li>Communication</li>
+                <li>Problem Solving</li>
+            </ul>
+
+            <h2>Web Dev Skills:</h2>
+            <ul class="skillul">
+                <li>Responsive Design</li>
+                <li>UI/UX Basics</li>
+                <li>React (Learning)</li>
+            </ul>
+        </section>
+
+        <section id="education" class="section">
+            <h1>Education</h1>
+            <p>B.Tech CSE<br>12th PCM 67%</p>
+        </section>
+
+        <section id="experience" class="section">
+            <h1>Experience</h1>
+            <p>Fresher • Learning Projects</p>
+        </section>
+
+        <section id="work" class="section work-section">
+            <h1>PROJECTS</h1>
+            <p>Here are some of my projects</p>
+            <div class="work-grid">
+                <div class="work-item p1">
+                    <img src="./f1 img.jpg" alt="Compatto">
+                    <p class="project-name">Compatto</p>
+                </div>
+                <div class="work-item p2">
+                    <img src="./vitat img.jpg" alt="Virat Tribute">
+                    <p class="project-name">Virat Tribute</p>
+                </div>
+                <div class="work-item p3">
+                    <img src="./company img.jpg" alt="Company XYZ">
+                    <p class="project-name">Company XYZ</p>
+                </div>
+                <div class="work-item p4">
+                    <img src="./IMG_20230727_112731.jpg" alt="Portfolio">
+                    <p class="project-name">Portfolio</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h1>Contact</h1>
+            <p>Email: pawankumayu@gmail.com</p>
+            <p>Phone: 8959008733</p>
+
+            <form action="https://formsubmit.co/pawankumayu@gmail.com" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+</body>
+
+</html>
