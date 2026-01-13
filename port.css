@@ -357,4 +357,34 @@ form button {
     .work-item img {
         height: 150px;
     }
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-img {
+        margin-top: 20px;
+        width: 80%;
+    }
+
+    .social-bar {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .s-icon {
+        font-size: 18px;
+        padding: 5px 8px;
+    }
 }
