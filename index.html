@@ -28,6 +28,10 @@
         <h2>Pawan Kumayu</h2>
         <p class="sub-title">MERN DEVELOPER</p>
 
+        <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+
 
         <div class="social-bar">
             <a href="https://github.com/" target="_blank" class="s-icon"><i class="fab fa-github"></i></a>
@@ -182,6 +186,12 @@
             </form>
         </section>
     </div>
+    <script>
+function toggleMenu() {
+    document.querySelector('.menu').classList.toggle('show');
+}
+</script>
+
 </body>
 
 </html>
